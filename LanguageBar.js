@@ -8,8 +8,8 @@ else
 {
   var loc_cur = loc.substring(loc.indexOf("/", 1));
   alert(loc_cur);
-  var loc_en = "./en" + loc_cur;
-  var loc_cn = "./zh-CN" + loc_cur;
+  var loc_en = "/en" + loc_cur;
+  var loc_cn = "/zh-CN" + loc_cur;
 }
 document.write("<div style=\"text-align:right; font-size:0.75em\"><span><a href=\"");
 document.write(loc_cn);
