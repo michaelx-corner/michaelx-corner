@@ -1,7 +1,16 @@
 var loc = GetUrlRelativePath();
-alert(loc);
-var loc_en = "./en" + loc;
-var loc_cn = "./zh-CN" + loc;
+if(loc == '/')
+{
+  var loc_en = "./en" + loc;
+  var loc_cn = "./zh-CN" + loc;
+}
+else
+{
+  var loc_cur = loc.substring(loc.indexOf("/", 1));
+  aler(loc_cur);
+  var loc_en = "./en" + loc_cur;
+  var loc_cn = "./zh-CN" + loc_cur;
+}
 document.write("<div style=\"text-align:right; font-size:0.75em\"><span><a href=\"");
 document.write(loc_cn);
 document.write("\">CN（中文）</a></span> | <span><a href=\"");
