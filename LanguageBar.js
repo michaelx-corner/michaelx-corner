@@ -7,7 +7,7 @@ if(loc == '/')
 else
 {
   var loc_cur = loc.substring(loc.indexOf("/", 1));
-  alert(loc_cur);
+  //alert(loc_cur);
   var loc_en = "/en" + loc_cur;
   var loc_cn = "/zh-CN" + loc_cur;
 }
