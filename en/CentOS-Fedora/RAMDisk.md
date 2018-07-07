@@ -25,6 +25,6 @@ umount /ram
 rm -rf /ram
 modprobe -r brd
 ```
-- You can put these into two seperate .sh files for future use.
------
-> [Creating a RAM Disk | Support | SUSE]([https://www.suse.com/support/kb/doc/?id=7012396])
+- You can also put these into two seperate .sh files for future use.
+>
+> [Creating a RAM Disk \| Support \| SUSE]([https://www.suse.com/support/kb/doc/?id=7012396])
