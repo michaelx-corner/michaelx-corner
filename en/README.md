@@ -2,8 +2,6 @@
 <!-- # michaelx-corner -->
 # \_michaelx\_ @ CornerStudio - Index
 
-## Site is Under Construction
-
 - [Introduction](./introduction.md)
 - [CentOS & Fedora](./CentOS-Fedora/README.md)
-  - [RAMDisk](./CentOS-Fedora/RAMDisk.md)
+  - [RAMDisk](./CentOS-Fedora/RAMDisk.md)(July, 2018)
