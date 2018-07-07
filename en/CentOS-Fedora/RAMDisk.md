@@ -9,7 +9,7 @@
 - Before this disk becomes readable, a file system is needed on it.
 - Here comes the command "mkfs.ext4" or any others with a different file system type.
 
-- The full script I use to create a RAMDisk with a 1.5G partition is listed below:
+- The full script I use to create a RAMDisk with a 1.5G partition is listed below (all these require root privilege):
 ```
 modprobe brd rd_size=1572864 max_part=1 rd_nr=1
 mkfs.ext4 /dev/ram0
@@ -25,3 +25,6 @@ umount /ram
 rm -rf /ram
 modprobe -r brd
 ```
+- You can put these into two seperate .sh files for future use.
+# 
+> [https://www.suse.com/support/kb/doc/?id=7012396](Creating a RAM Disk | Support | SUSE)
