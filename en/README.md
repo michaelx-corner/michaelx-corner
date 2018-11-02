@@ -6,4 +6,4 @@
 - [CentOS & Fedora](./CentOS-Fedora/README.md)
   - [RAMDisk](./CentOS-Fedora/RAMDisk.md)(July, 2018)
 - [Android](./Android/README.md)
-  - [Adb failed to extract native libraries](./Android/Adb-failed-to-extract-native-libraries.md)
+  - [Adb failed to extract native libraries](./Android/Adb-failed-to-extract-native-libraries.md)(Nov, 2018)
