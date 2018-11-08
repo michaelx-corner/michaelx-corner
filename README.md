@@ -2,8 +2,7 @@
 
 <!--# michaelx-corner-->
 ### Home Page
----
-#### \_michaelx\_@CornerStudio
+ \_michaelx\_@CornerStudio
 
 <div style="text-align:center; width:100%; text-size:2em">跳转中…… / Redirecting...</div>
 <script language="javascript" type="text/javascript">
