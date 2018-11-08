@@ -1,8 +1,7 @@
 <script language="javascript" type="text/javascript" src="/LanguageBar.js"></script>
 
 <!--# michaelx-corner-->
-### Home Page
-` \_michaelx\_@CornerStudio `
+# Home Page
 
 <div style="text-align:center; width:100%; text-size:2em">跳转中…… / Redirecting...</div>
 <script language="javascript" type="text/javascript">
