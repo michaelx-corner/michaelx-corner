@@ -21,13 +21,9 @@
 Adb: Failure [INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]
   If you try to look for a reason by `adb install`, you may get notified with this error message. Seemed weird to many people, it shows that there is something wrong with the `.so` files, i.e. libraries. The best part is that it actually can be fixed easily if you know what to check.  
 ```xml
-  <application android:allowBackup="false" 
-               android:directBootAware="true" 
-               **_android:extractNativeLibs="false"_**
-               android:icon="@mipmap/ic_launcher" 
-               android:label="@string/app_name" 
-               android:name="com.meizu.mznfcpay.MeizuPayApp"
-               android:resizeableActivity="false"
-               android:supportsRtl="true"
-               android:theme="@style/AppTheme">
+  <application ...
+               android:extractNativeLibs="false"
+               ...>
 ```
+  According to [this article](https://developer.android.google.cn/guide/topics/manifest/application-element#extractNativeLibs) from Android Developers site, this attribute, rare in common apks, has a specific requirement on the apk file itself.
+> If set to false, then your native libraries must be page aligned and stored uncompressed in the APK. No code changes are required as the linker loads the libraries directly from the APK at runtime.
