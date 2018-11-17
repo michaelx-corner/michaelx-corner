@@ -33,10 +33,10 @@ adb: failed to install .\com.meizu.mznfcpay-4.1.5.apk:
                ...>
 ```
   According to [this article](https://developer.android.google.cn/guide/topics/manifest/application-element#extractNativeLibs) from Android Developers site, this attribute, rare in common apks, has a specific requirement on the apk file itself.
-> If set to false, then your native libraries must be page aligned and stored uncompressed in the APK. No code changes are required as the linker loads the libraries directly from the APK at runtime.
+> If set to false, then your native libraries must be page aligned and stored uncompressed in the APK. No code changes are required as the linker loads the libraries directly from the APK at runtime.  
   Thus, this message means a high possiblity of 'unzipaligned' in the zip/apk file, or at least the library part makes the package manager unable to locate the `.so` files and copy them byte-by-byte into the file system.  
   
-  Let's check the alignment.
+  Let's check the alignment with zipalign tool which can be found in Android SDK tool set folder.
 ```
 PS Z:\> C:\Programs\Android\android-sdk\build-tools\28.0.3\zipalign.exe
 Zip alignment utility
@@ -67,3 +67,28 @@ Verifying alignment of .\update_cache_4.1.5.apk (4)...
 ...
 Verification FAILED
 ```
+  Exactly, libraries weren't zipaligned properly in this apk. Without content and signature change, it can be repaired by zipalign tool.  
+```
+Verification FAILED
+PS Z:\> C:\Programs\Android\android-sdk\build-tools\28.0.3\zipalign.exe -p -v 4 .\update_cache_4.1.5.apk .\com.meizu.mznfcpay-4.1.5.apk
+Verifying alignment of .\com.meizu.mznfcpay-4.1.5.apk (4)...
+...
+ 9773056 lib/armeabi/libAPSE_1.1.5.so (OK)
+10649600 lib/armeabi/libcom_meizu_mznfcpay_security.so (OK)
+10690560 lib/armeabi/libflybird.so (OK)
+10973184 lib/armeabi/libmeizu_pay_jni.so (OK)
+10997760 lib/armeabi/libofflinecrypto.so (OK)
+11038720 lib/armeabi/libopenssl.so (OK)
+12197888 lib/armeabi/libsgavmp.so (OK)
+12283904 lib/armeabi/libsgmain.so (OK)
+12685312 lib/armeabi/libsgsecuritybody.so (OK)
+12804096 lib/armeabi/libuptsmaddon.so (OK)
+...
+Verification succesful
+PS Z:\> adb install -r .\com.meizu.mznfcpay-4.1.5.apk
+Success
+```
+  Then you can smoothly install or upgrade with this apk and scold the app developer.  
+
+### Helpful links:
+  Zipalign usage:[Sign your app | Android Developers](https://developer.android.google.cn/studio/publish/app-signing)
