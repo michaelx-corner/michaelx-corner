@@ -7,9 +7,9 @@
 ```
   × App not installed.
 ```
-  Your phone won't install the apk you've just downloaded and the explanation you demand is nowhere to be found.  
-  This might happened a lot if you're a fan for sideloads and your phone is out-dated. Because along with new versions of Android and APIs issued every year by Google, new apps or updated ones may have a higher minimum system API level requirement. This then stops you from using the apks.  
-  This requirement can be easily found in AndroidManifest.xml.  
+   Your phone won't install the apk you've just downloaded and the explanation you demand is nowhere to be found.  
+   This might happened a lot if you're a fan for sideloads and your phone is out-dated. Because along with new versions of Android and APIs issued every year by Google, new apps or updated ones may have a higher minimum system API level requirement. This then stops you from using the apks.  
+   This requirement can be easily found in AndroidManifest.xml.  
 ```xml
   <uses-sdk android:minSdkVersion="28"
             android:targetSdkVersion="28" />
