@@ -88,7 +88,7 @@ Verification succesful
 PS Z:\> adb install -r .\com.meizu.mznfcpay-4.1.5.apk
 Success
 ```
-  Then you can smoothly install or upgrade with this apk and scold the app developer.  
+  After zipalign, you can smoothly install or upgrade with this apk and scold the app developer.  
 
-### Helpful links:
+## Helpful links:
   Zipalign usage:[Sign your app | Android Developers](https://developer.android.google.cn/studio/publish/app-signing)
