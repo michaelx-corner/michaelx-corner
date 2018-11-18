@@ -32,4 +32,6 @@ ESP | MSR | C: | OEM Partition | ` ` | ` ` | E: | F: | Idle
 7. Calculate CRC32 of the table header file.
 8. copy the calculated one into 0x10 to 0x13.
 9. Replace the the 92-byte table header block and 16384-byte entry array block with files made from last few steps.
-10. Recover the partition table file `.ptf` with DiskGenius or other hex editors.
+10. Recover the partition table with `.ptf` file using DiskGenius or other hex editors.
+
+### GUIDs and LBAs
