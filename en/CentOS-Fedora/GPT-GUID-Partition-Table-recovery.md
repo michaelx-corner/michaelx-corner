@@ -7,4 +7,3 @@ Due to unintentionally deleting partitions in partition table and leaving the da
 gpt1 | gpt2 | gpt3 | gpt4 | gpt5 | gpt6 | gpt7 | gpt8 | gpt9
 --- | --- | --- | --- | --- | --- | --- | --- | ---
 FAT32 | MSR | NTFS | NTFS | Ext4 | LVM | NTFS | NTFS | Idle
-ESP | MSR | C: | OEM Partition | /boot | / | E: | F: | Idle
