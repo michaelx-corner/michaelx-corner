@@ -21,5 +21,5 @@ ESP | MSR | C: | OEM Partition | `     ` | ` ` | E: | F: | Idle
   
 ### GUID partition table structure
   According to this diagram on Wikipedia, the basic idea is to re-write entries in the pure Windows GPT.  
-  ![GPT Partition Table Scheme](https://en.wikipedia.org/wiki/File:GUID_Partition_Table_Scheme.svg "Logo Title Text 1")  
+  ![GPT Partition Table Scheme](https://upload.wikimedia.org/wikipedia/commons/0/07/GUID_Partition_Table_Scheme.svg "GPT Partition Table Scheme")  
   The partition entry array has a more specified structure. From [this article]()
