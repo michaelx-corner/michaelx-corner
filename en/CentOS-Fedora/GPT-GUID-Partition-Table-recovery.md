@@ -35,8 +35,19 @@ ESP | MSR | C: | OEM Partition | ` ` | ` ` | E: | F: | Idle
 10. Recover the partition table with `.ptf` file using DiskGenius or other hex editors.
 
 ### GUIDs and LBAs
-  To add one new entry into entry array file, two GUIDs and two LBAs are needed. My first lost partition is a Linux Ext4 partition with a mount point `/boot`. In my last reboot, grub2 prompt that the partition specified by GUID in `grub.cfg` file cannot be found. The partition type GUID of Linux file system data is `0FC63DAF-8483-4772-8E79-3D69D8477DE4`. The unique partition GUID is ` 55AA9CBD-9128-442B-B16D-AFB3-94CF0BCB` which was generated during first formation and in my case recorded by grub. So the first 32 bytes of the Ext4 partition is 
-  `AF 3D C6 0F 83 84 72 47 79 8E E4 7D 47 D8 69 3D  
-   BD 9C AA 55 28 91 2B 44 6D B1 B3 AF CB 0B CF 94`. 
-  Note that big-endian order has to be used with these GUIDs.  
-  The Ext4 partition starts with two empty padding sectors, i.e. 2x512bytes=1024bytes, then followed with Ext4 super block. This super block can be located by searching its unique GUID or the mount point string `/boot`.  
+  To add one new entry into entry array file, two GUIDs and two LBAs are needed. My first lost partition is a Linux Ext4 partition with a mount point `/boot`. In my last reboot, grub2 prompt that the partition specified by GUID in `grub.cfg` file cannot be found. The partition type GUID of Linux file system data is `0FC63DAF-8483-4772-8E79-3D69D8477DE4`. The unique partition GUID is ` 55AA9CBD-9128-442B-B16D-AFB3-94CF0BCB` which was generated during first formation and in my case recorded by grub. So the first 32 bytes of the Ext4 partition is  `AF 3D C6 0F 83 84 72 47 79 8E E4 7D 47 D8 69 3D`  `BD 9C AA 55 28 91 2B 44 6D B1 B3 AF CB 0B CF 94`. Note that big-endian order has to be used with these GUIDs.  
+  
+  The Ext4 partition starts with two empty padding sectors, i.e. 2x512bytes=1024bytes, then followed with Ext4 super block. This super block can be located by searching its unique GUID or the mount point string `/boot`. Thus the first LBA is the header offset divided by sector size, 0x200h bytes here. The ending offset can be calculated by adding partition size, blocks count multiply by blocks size, to the start offset. By dividing 0x200h and minus 1, the last LBA can be obtained. Each LBA takes up 16 bytes.  
+  
+  Similarly, entry of LVM2 can be define. The file system type GUID is `E6D6D379-F507-44C2-A23C-238F2A3DF928`. The unique GUID seemed not written into the file system. I regenerated a new GUID myself from online generator tool. LVM2 partition begins with a 4-sector padding, followed with LVM header called "label", `LABELONE`, then metadata area. From metadata, LVM partition size can be decided by `pe_count`, `extent_size` and sector size (also 512 bytes).  
+  
+  After all these seekings and calculations, GPT headers can be aquired. Save them to disk and reboot to test if it is successful.  
+  
+### Notes
+* If LVM entry is not correct, Druct may prompt `device mapper cannot calculate initial queue limits`.  
+* Wrong GPT saving will immediately cause a blue screen in Windows. So a backup GPT on USB drive and a bootable PE system on it are needed.  
+
+## Useful links
+GPT Wiki: [GUID Partition Table - Wikipedia](https://en.wikipedia.org/wiki/GUID_Partition_Table)
+Ext4 Wiki: [Ext4 Disk Layout - Ext4](https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout)
+LVM Metadata: [LVM元数据分析 - LastRitter的个人空间 - 开源中国](https://my.oschina.net/LastRitter/blog/875444)
