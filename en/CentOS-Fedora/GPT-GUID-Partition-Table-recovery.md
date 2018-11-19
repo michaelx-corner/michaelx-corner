@@ -48,6 +48,6 @@ ESP | MSR | C: | OEM Partition | ` ` | ` ` | E: | F: | Idle
 * Wrong GPT saving will immediately cause a blue screen in Windows. So a backup GPT on USB drive and a bootable PE system on it are needed.  
 
 ## Useful links
-GPT Wiki: [GUID Partition Table - Wikipedia](https://en.wikipedia.org/wiki/GUID_Partition_Table)
-Ext4 Wiki: [Ext4 Disk Layout - Ext4](https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout)
-LVM Metadata: [LVM元数据分析 - LastRitter的个人空间 - 开源中国](https://my.oschina.net/LastRitter/blog/875444)
+GPT Wiki: [GUID Partition Table - Wikipedia](https://en.wikipedia.org/wiki/GUID_Partition_Table)  
+Ext4 Wiki: [Ext4 Disk Layout - Ext4](https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout)  
+LVM Metadata: [LVM元数据分析 - LastRitter的个人空间 - 开源中国](https://my.oschina.net/LastRitter/blog/875444)  
