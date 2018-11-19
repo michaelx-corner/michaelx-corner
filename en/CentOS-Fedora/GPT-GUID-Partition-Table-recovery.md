@@ -35,3 +35,8 @@ ESP | MSR | C: | OEM Partition | ` ` | ` ` | E: | F: | Idle
 10. Recover the partition table with `.ptf` file using DiskGenius or other hex editors.
 
 ### GUIDs and LBAs
+  To add one new entry into entry array file, two GUIDs and two LBAs are needed. My first lost partition is a Linux Ext4 partition with a mount point `/boot`. In my last reboot, grub2 prompt that the partition specified by GUID in `grub.cfg` file cannot be found. The partition type GUID of Linux file system data is `0FC63DAF-8483-4772-8E79-3D69D8477DE4`. The unique partition GUID is ` 55AA9CBD-9128-442B-B16D-AFB3-94CF0BCB` which was generated during first formation and in my case recorded by grub. So the first 32 bytes of the Ext4 partition is 
+  `AF 3D C6 0F 83 84 72 47 79 8E E4 7D 47 D8 69 3D  
+   BD 9C AA 55 28 91 2B 44 6D B1 B3 AF CB 0B CF 94`. 
+  Note that big-endian order has to be used with these GUIDs.  
+  The Ext4 partition starts with two empty padding sectors, i.e. 2x512bytes=1024bytes, then followed with Ext4 super block. This super block can be located by searching its unique GUID or the mount point string `/boot`.  
