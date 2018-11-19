@@ -1,8 +1,6 @@
 <script language="javascript" type="text/javascript" src="/LanguageBar.js"></script>
 <!-- # michaelx-corner -->
-# \_michaelx\_ @ CornerStudio - Index
-
-## What if I can turn my super big memory into a disk?
+# What if I can turn my super big memory into a disk?
 - A RAMDisk has a faster speed over SSD and can save much of the latter one's life.
 - To create a RAMDisk in Fedora or CentOS, you can use a kernel module command "modprobe" with the module option "brd"(block ram disk). 
 - Then you can find a new device /dev/ram0 appeared, which can be mounted as a disk later.
@@ -25,6 +23,6 @@ umount /ram
 rm -rf /ram
 modprobe -r brd
 ```
-- You can also put these into two seperate .sh files for future use.
+- You can also put these into two seperate `.sh` files for future use.
 >
 > [Creating a RAM Disk \| Support \| SUSE](https://www.suse.com/support/kb/doc/?id=7012396)
