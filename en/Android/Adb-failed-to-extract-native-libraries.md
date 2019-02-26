@@ -10,7 +10,7 @@ If you use apksigner, zipalign must only be performed before the APK file has be
 If you use jarsigner, zipalign must only be performed after the APK file has been signed.
 ```
 .
-  This means only if your APK was signed using just v1 scheme (JAR signing) (which is true for most older project) can you use the following method. In my case, it was, as found out by [APK-Info](https://forum.xda-developers.com/android/general/apk-info-rebuild-t3614970).
+  This means only if your APK was signed using just `v1 scheme (JAR signing)` (which is true for most older projects. Once a certificate was issued, they don't update it, generally speaking) can you use the following method. In my case, it was, as found out by [APK-Info](https://forum.xda-developers.com/android/general/apk-info-rebuild-t3614970).
 ```
 Verified using v1 scheme (JAR signing): true
 Verified using v2 scheme (APK Signature Scheme v2): false
