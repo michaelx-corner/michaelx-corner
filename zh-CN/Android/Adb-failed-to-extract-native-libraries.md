@@ -2,6 +2,22 @@
 <!-- # michaelx-corner -->
 # Adb failed to extract native libraries
 
+
+### 更新：2019年2月
+  根据谷歌 Android Developers 网站 Zipalign 工具页面，
+```
+If you use apksigner, zipalign must only be performed before the APK file has been signed. If you sign your APK using apksigner and make further changes to the APK, its signature is invalidated.
+
+If you use jarsigner, zipalign must only be performed after the APK file has been signed.
+```
+.
+  这意味着除非你的 APK 只使用了`v1 scheme (JAR signing)`签名（多数较有历史的项目是这样，签名一旦颁布，很少会再进行更新），你才能使用下文的方法。我的情况的确如此，可以用[APK-Info](https://forum.xda-developers.com/android/general/apk-info-rebuild-t3614970)工具看出。
+```
+Verified using v1 scheme (JAR signing): true
+Verified using v2 scheme (APK Signature Scheme v2): false
+Number of signers: 1
+```
+
 ### Apk安装失败
   Have you ever run into a problem on your Android phone like this.
 ```
