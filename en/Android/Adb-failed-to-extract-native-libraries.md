@@ -50,6 +50,7 @@ adb: failed to install .\com.meizu.mznfcpay-4.1.5.apk:
   According to [this article](https://developer.android.google.cn/guide/topics/manifest/application-element#extractNativeLibs) from Android Developers site, this attribute, rare in common apks, has a specific requirement on the apk file itself.
 > If set to false, then your native libraries must be page aligned and stored uncompressed in the APK. No code changes are required as the linker loads the libraries directly from the APK at runtime.  
   Thus, this message means a high possiblity of 'unzipaligned' in the zip/apk file, or at least the library part makes the package manager unable to locate the `.so` files and copy them byte-by-byte into the file system.  
+  
 ### Zipalign
   Let's check the alignment with zipalign tool which can be found in Android SDK tool set folder.
 ```
